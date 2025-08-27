@@ -21,7 +21,7 @@ connect_DB();
 function auth(req,res,next){
   try {
     const token=req.headers.token
-    const decoded_data=jwt.verify(token,process.env.JWT_Secret)
+    const decoded_data=jwt.verify(token,process.env.JWT_SECRET)
     req.userId=decoded_data.id
     next()
   } catch (e) {
@@ -126,7 +126,7 @@ app.post("/signin",async function(req,res){
   if(passwordmatch){
     const token=jwt.sign({
       id:user._id.toString()
-    },process.env.JWT_Secret);
+    },process.env.JWT_SECRET);
     res.json({
       token:token
     })
