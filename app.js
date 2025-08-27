@@ -312,4 +312,3 @@ app.post("/quiz/:id/attempt",auth,async function(req,res){
 })
 
 module.exports=app;
-app.listen(3000);
