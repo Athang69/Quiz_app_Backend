@@ -311,4 +311,9 @@ app.post("/quiz/:id/attempt",auth,async function(req,res){
   }
 })
 
+const port = process.env.PORT || 4000 
+app.listen(port, () => {
+  console.log(`Quiz app listening on port ${port}`)
+})
+
 module.exports=app;
