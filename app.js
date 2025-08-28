@@ -150,7 +150,7 @@ app.get("/dashboard",auth,async function(req,res){
 
       const publicQuiz = await QuizModel.find({isPublic:true}).select("-questions.correctOption").lean()
       // const ownerQuiz = await QuizModel.find({owner:req.userId}).select("-questions.correctOption").lean()
-      const quizzes = [...ownerQuiz]
+      const quizzes = [...publicQuiz]
       const attempts = await attemptModel.find({user:req.userId}).lean()
       const dashboardData = quizzes.map(quiz => {
       const quizAttempts = attempts.filter(attempt => String(attempt.quiz._id) === String(quiz._id))
